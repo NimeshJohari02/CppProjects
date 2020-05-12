@@ -1,0 +1,47 @@
+
+#include<iostream>
+#include<string.h>
+int counter=0;
+using namespace std;
+struct node
+{
+	char data;
+	struct node *next;
+}*first=NULL;
+void create(char a[],int n)
+{
+	struct node *temp,*last;
+	first= new node;
+	first->data=a[0];
+	last=first;
+	for(int i=1;i<n;i++)
+	{
+		temp=new node;
+		temp->data=a[i];
+		temp->next=NULL;  
+		last->next=temp;
+		last=temp;
+
+	}
+}
+void display(struct node *p)
+{
+	while(p!=NULL)
+	{
+		cout<<p->data<<endl;
+		counter++;
+		p=p->next;
+		
+	}
+}
+
+int main()
+{
+	char a[100],n1[100],n2[100];
+	strcpy(a,"FLAMES");
+	int n=strlen(a);
+	create(a,n);
+	display(first);
+	
+}  
+
